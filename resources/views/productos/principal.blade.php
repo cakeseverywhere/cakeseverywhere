@@ -8,6 +8,7 @@
                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                 <li data-target="#carouselExampleCaption" data-slide-to="3"></li>
             </ol>
+            <!--Comentario Manuel para verificar GIT-->
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{asset('img/producto/p1.jpg')}}" height="550" class="d-block w-100"  alt="foto-pastel1">

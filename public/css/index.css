@@ -1,0 +1,13 @@
+.navbar-red{
+    background-color: #F43A38 !important;
+}
+
+.navbar-red a{
+    color: white;
+}
+
+.title-text{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}

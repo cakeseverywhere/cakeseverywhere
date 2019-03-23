@@ -13,4 +13,9 @@
 
 Route::get('/', function () {
     return view('productos.principal');
-});
+})->name('inicio');
+
+Route::view('nosotros','informative.nosotros')->name('nosotros');
+
+
+Route::view('pasteles','productos.pasteles')->name('pasteles');

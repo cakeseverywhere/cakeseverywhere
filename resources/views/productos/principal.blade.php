@@ -13,29 +13,29 @@
                 <div class="carousel-item active">
                     <img src="{{asset('img/producto/p1.jpg')}}" height="550" class="d-block w-100"  alt="foto-pastel1">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h5>Pastel chocolate con cafe</h5>
+                        <p>Deleita tu paladar</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('img/producto/p2.jpg')}}"  height="550" class="d-block w-100" alt="foto-pastel2">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h5>Pastel chocolate amargo con frutos frescos</h5>
+                        <p>Una delicia visual</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('img/producto/P3.jpg')}}" height="550" class="d-block w-100" alt="foto-pastel3">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h5>Pastel de cafe relleno de cerezas</h5>
+                        <p>Una delicia de los dioses</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{{asset('img/producto/P4.jpg')}}"  height="550" class="d-block w-100" alt="foto-pastel4"/>
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third</h5>
-                        <p></p>
+                        <h5>Supremo de chocolate</h5>
+                        <p>Nunca es suficiente chocolate</p>
                     </div>
                 </div>
             </div>
@@ -143,47 +143,4 @@
     </section>
 
     <!-- ENDLOMAS VENDIDO-->
-
-
-
-
-    <!--
-        <div class="cont-carrusel" data-current="0">
-            {{--<a href="#" class="left-arrow"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>--}}
-            <a href="#" class="right-arrow"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-            {{--<div class="carrusel">--}}
-                {{--<div class="product start-card " id="product_0">--}}
-                    {{--<img src="{{asset('img/producto/P3.jpg')}}" width="100%" height="100" />--}}
-                    {{--<h5>Lorem ipsum 1</h5>--}}
-                    {{--<p>165.00 €</p>--}}
-                {{--</div>--}}
-                {{--<div class="product " id="product_1">--}}
-                    {{--<img src="{{asset('img/producto/P3.jpg')}}" width="100%" height="100" />--}}
-                    {{--<h5>Lorem ipsum 2</h5>--}}
-                    {{--<p>100.00 €</p>--}}
-                {{--</div>--}}
-                {{--<div class="product " id="product_2">--}}
-                    {{--<img src="{{asset('img/producto/P3.jpg')}}" width="100%" height="100" />--}}
-                    {{--<h5>Lorem ipsum 3</h5>--}}
-                    {{--<p>250.00 €</p>--}}
-                {{--</div>--}}
-                {{--<div class="product " id="product_3">--}}
-                    {{--<img src="{{asset('img/producto/P3.jpg')}}" width="100%" height="100" />--}}
-                    {{--<h5>Lorem ipsum 4</h5>--}}
-                    {{--<p>75.00 €</p>--}}
-                {{--</div>--}}
-                {{--<div class="product " id="product_4">--}}
-                    {{--<img src="{{asset('img/producto/P3.jpg')}}" width="100%" height="100" />--}}
-                    {{--<h5>Lorem ipsum 5</h5>--}}
-                    {{--<p>65.00 €</p>--}}
-                {{--</div>--}}
-                {{--<div class="product " id="product_5">--}}
-                    {{--<img src="{{asset('img/producto/P3.jpg')}}" width="100%" height="100" />--}}
-                    {{--<h5>Lorem ipsum 6</h5>--}}
-                    {{--<p>40.00 €</p>--}}
-                </div>
-            </div>
-        </div>
-    -->
-
 @endsection

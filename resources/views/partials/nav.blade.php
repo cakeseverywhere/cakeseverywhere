@@ -22,10 +22,11 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item" style="padding-right: 5px">
-                <a href="#" data-toggle="modal" data-target="#modal-sign"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Sign Up </a>
+               <a href="{{route('register')}}" ><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Sing up</a>
+
             </li>
             <li class="nav-item">
-                <a href="#" data-toggle="modal" data-target="#modal-login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                <a href="{{route('login')}}" > <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
             </li>
         </ul>
     </div>

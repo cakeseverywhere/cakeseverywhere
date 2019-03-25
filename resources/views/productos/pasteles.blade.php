@@ -1,15 +1,13 @@
 @extends('templates.layout')
 @section('content')
+    <!--incio imagen pagina pateles-->
     <div class="img-producto " style="background-color: #4e555b">
 
         <img class="img-fluid rounded mx-auto d-block" src="{{asset('img/producto/p1.jpg')}}" alt="productos-img">
     </div>
-    <!--endcarousel-->
+    <!--endimagen-->
 
-
-
-
-    <!-- LOMAS VENDIDO-->
+    <!--Inicio pasteles-->
     <section class="container-fluid py-3">
         <div class="title-text py-2">
             <h2 class="text-uppercase">PASTELES</h2>
@@ -138,7 +136,7 @@
         </ul>
     </nav>
 
-    <!-- ENDLOMAS VENDIDO-->
+    <!-- END Pasteles-->
 
 
 

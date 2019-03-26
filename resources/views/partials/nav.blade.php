@@ -21,13 +21,36 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item" style="padding-right: 5px">
-               <a href="{{route('register')}}" ><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Sing up</a>
 
-            </li>
-            <li class="nav-item">
-                <a href="{{route('login')}}" > <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-            </li>
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/home') }}"  >
+                                    <i class="fa fa-user-circle" aria-hidden="true" ></i>  {{ Auth::user()->name }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            </li>
+
+                        </ul>
+
+                    @else
+
+                            <a href="{{route('login')}}" > <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+
+
+                        @if (Route::has('register'))
+                                <a href="{{route('register')}}" ><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Sing up</a>
+
+
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </ul>
     </div>
 </nav>

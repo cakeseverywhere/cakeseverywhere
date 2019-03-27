@@ -26,28 +26,32 @@
                 <div class="top-right links">
                     @auth
                         <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/home') }}"  >
-                                    <i class="fa fa-user-circle" aria-hidden="true" ></i>  {{ Auth::user()->name }}
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" style="color:black; !important;" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Salir
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                            </li>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        </li>
 
                         </ul>
-
                     @else
 
-                            <a href="{{route('login')}}" > <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-
-
-                        @if (Route::has('register'))
-                                <a href="{{route('register')}}" ><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Sing up</a>
-
-
-                        @endif
+                            <a href="{{route('login')}}" > <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión</a>
+                            <a href="{{route('register')}}" ><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Registrarse</a>
                     @endauth
                 </div>
             @endif

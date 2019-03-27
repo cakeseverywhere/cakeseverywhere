@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('templates.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid p-5">
+    <div class="row justify-content-center" style="margin-bottom: 20%">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
@@ -14,12 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Iniciaste Sesión
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 @endsection

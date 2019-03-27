@@ -18,6 +18,7 @@
     <link href="{{asset('css/index.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/carusel.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{asset('img/icons/logo.png')}}">
 </head>
     <body>
     @include('partials.login_sign_modal')

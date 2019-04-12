@@ -14,9 +14,9 @@ class CreateHistorialProductosTable extends Migration
     public function up()
     {
         Schema::create('historial_productos', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->unsignedInteger('fk_id_producto');
-            $table->unsignedInteger('fk_id_produclasi');
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('fk_id_producto');
+            $table->unsignedBigInteger('fk_id_produclasi');
 
             $table->foreign('fk_id_producto')
                 ->references('id')

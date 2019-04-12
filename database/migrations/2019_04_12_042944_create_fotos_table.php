@@ -14,8 +14,8 @@ class CreateFotosTable extends Migration
     public function up()
     {
         Schema::create('fotos', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->unsignedInteger('fk_id_variante');
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('fk_id_variante');
             $table->string('nombre');
             $table->string('ur_foto');
 

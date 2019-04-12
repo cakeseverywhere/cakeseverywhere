@@ -14,9 +14,9 @@ class CreateVariantesPromocionesTable extends Migration
     public function up()
     {
         Schema::create('variantes_promociones', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->integer('fk_id_variante')->unsigned();
-            $table->integer('fk_id_promociones')->unsigned();
+            $table->BigIncrements('id');
+            $table->Biginteger('fk_id_variante')->unsigned();
+            $table->Biginteger('fk_id_promociones')->unsigned();
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
 

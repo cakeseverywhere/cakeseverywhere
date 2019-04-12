@@ -14,9 +14,9 @@ class CreateProductosSucursalesTable extends Migration
     public function up()
     {
         Schema::create('productos_sucursales', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->unsignedInteger('fk_id_producto');
-            $table->unsignedInteger('fk_id_sucursal');
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('fk_id_producto');
+            $table->unsignedBigInteger('fk_id_sucursal');
 
             $table->foreign('fk_id_producto')
                 ->references('id')

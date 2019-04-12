@@ -14,8 +14,8 @@ class CreateValoresTable extends Migration
     public function up()
     {
         Schema::create('valores', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->unsignedInteger('fk_id_caracteristicas');
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('fk_id_caracteristicas');
             $table->string('valor');
             $table->string('desc_valor');
 

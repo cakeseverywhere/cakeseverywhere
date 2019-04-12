@@ -14,7 +14,7 @@ class CreateProductoClasificacionesTable extends Migration
     public function up()
     {
         Schema::create('producto_clasificaciones', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->BigIncrements('id');
             $table->string('nombre_clasificacion');
             $table->binary('status');
             $table->string('desc_clasi');

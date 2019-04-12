@@ -14,8 +14,8 @@ class CreateVariantesTable extends Migration
     public function up()
     {
         Schema::create('variantes', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->unsignedInteger('fk_id_producto');
+            $table->BigIncrements('id');
+            $table->unsignedBigInteger('fk_id_producto');
             $table->string('nom_variante');
             $table->integer('stock');
             $table->float('precio');

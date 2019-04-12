@@ -14,7 +14,7 @@ class CreateDireccionesSucursalesTable extends Migration
     public function up()
     {
         Schema::create('direcciones_sucursales', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->BigIncrements('id');
             $table->string('estado');
             $table->string('municipio');
             $table->string('localidad');

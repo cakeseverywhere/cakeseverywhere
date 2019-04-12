@@ -21,7 +21,6 @@ class CreateHistorialProductosTable extends Migration
             $table->foreign('fk_id_producto')
                 ->references('id')
                 ->on('productos');
-
             $table->foreign('fk_id_produclasi')
                 ->references('id')
                 ->on('producto_clasificaciones');

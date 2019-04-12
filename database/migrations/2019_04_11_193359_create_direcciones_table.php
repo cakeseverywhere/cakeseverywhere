@@ -17,7 +17,6 @@ class CreateDireccionesTable extends Migration
             $table->bigIncrements('id');
             $table->string('estado');
             $table->string('municipio');
-            $table->string('municipio');
             $table->string('localidad');
             $table->string('calle');
             $table->string('num_ext');

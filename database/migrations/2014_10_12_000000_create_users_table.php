@@ -22,11 +22,15 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('tel_fijo');
             $table->string('tel_celular')->unique();
+            $table->date('fecha_registro');
+            $table->unsignedBigInteger('fk_id_privilegios');
+            $table->unsignedBigInteger('fk_id_categorias_usuarios');
 
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('');
+            $table->foreign('fk_id_privilegios')->references('id')->on('privilegios');
+            $table->foreign('fk_id_categorias_usuarios')->references('id')->on('categorias_usuarios');
         });
     }
 

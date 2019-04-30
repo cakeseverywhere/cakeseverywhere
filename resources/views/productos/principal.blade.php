@@ -11,31 +11,31 @@
             <!--Comentario Manuel para verificar GIT-->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{asset('img/producto/p1.jpg')}}" height="550" class="d-block w-100"  alt="foto-pastel1">
+                    <img src="{{asset('').$p->get(4)->fotos->get(0)->ur_foto}}" height="550" class="d-block w-100"  alt="foto-pastel1">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Pastel chocolate con cafe</h5>
+
                         <p>Deleita tu paladar</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/producto/p2.jpg')}}"  height="550" class="d-block w-100" alt="foto-pastel2">
+                    <img src="{{asset('').$p->get(5)->fotos->get(0)->ur_foto}}"  height="550" class="d-block w-100" alt="foto-pastel2">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Pastel chocolate amargo con frutos frescos</h5>
+
                         <p>Una delicia visual</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/producto/P3.jpg')}}" height="550" class="d-block w-100" alt="foto-pastel3">
+                    <img src="{{asset('').$p->get(6)->fotos->get(0)->ur_foto}}" height="550" class="d-block w-100" alt="foto-pastel3">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Pastel de cafe relleno de cerezas</h5>
+
                         <p>Una delicia de los dioses</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{asset('img/producto/P4.jpg')}}"  height="550" class="d-block w-100" alt="foto-pastel4"/>
+                    <img src="{{asset('').$p->get(7)->fotos->get(0)->ur_foto}}"  height="550" class="d-block w-100" alt="foto-pastel4"/>
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Supremo de chocolate</h5>
-                        <p>Nunca es suficiente chocolate</p>
+
+                        <p>Nunca es suficiente</p>
                     </div>
                 </div>
             </div>
@@ -58,37 +58,37 @@
         </div>
         <div class="card-deck" data-current="0">
                 <div class="card start-card">
-                    <img class="card-img-top" src="{{asset('img/producto/p2.jpg')}}" width="245" height="180" alt="Card image cap">
+                    <img class="card-img-top" src="{{asset('').$p->first()->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">{{$p->first()->nom_producto}}</h5>
+                        <p class="card-text">{{$p->first()->desc_producto}}</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
                     </div>
                 </div>
                 <div class="card ">
-                    <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
+                    <img class="card-img-top" src="{{asset('').$p->get(1)->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title">{{$p->get(1)->nom_producto}}</h5>
+                        <p class="card-text">{{$p->get(1)->desc_producto}}</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
                     </div>
                 </div>
 
             <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
+                <img class="card-img-top" src="{{asset('').$p->get(2)->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">{{$p->get(2)->nom_producto}}</h5>
+                    <p class="card-text">{{$p->get(2)->desc_producto}}</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
 
             <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
+                <img class="card-img-top" src="{{asset('').$p->get(3)->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title">{{$p->get(3)->nom_producto}}</h5>
+                    <p class="card-text">{{$p->get(3)->desc_producto}}</p>
+                    <p class="card-text"><small class="text-muted"></small></p>
                 </div>
             </div>
       </div>

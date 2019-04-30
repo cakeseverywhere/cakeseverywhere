@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('productos.principal');
-})->name('inicio');
+Route::get('/', 'ProductosController@index')->name('inicio');
+
+Route::get('registerProductos', 'ProductosController@vistaRegistro')->name('registarProducto');;
+Route::post('registerProductos', 'ProductosController@store');
 
 Route::view('nosotros','informative.nosotros')->name('nosotros');
 
@@ -24,3 +25,14 @@ Route::view('pasteles','productos.pasteles')->name('pasteles');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('DirSucursales');
+Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
+
+Route::get('listasucursales/{id}','SucursalesController@show')->name('sucursal');
+
+
+
+
+
+//Route::get('/','SucursalesController@index');

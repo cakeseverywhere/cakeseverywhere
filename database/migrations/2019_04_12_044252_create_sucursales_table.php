@@ -22,7 +22,9 @@ class CreateSucursalesTable extends Migration
 
             $table->foreign('fk_id_direccion')
                 ->references('id')
-                ->on('direcciones_sucursales');
+                ->on('direcciones_sucursales')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -22,11 +22,15 @@ class CreateVariantesPedidosTable extends Migration
 
             $table->foreign('fk_id_variante')
                 ->references('id')
-                ->on('variantes');
+                ->on('variantes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->foreign('fk_id_status_pedido')
                 ->references('id')
-                ->on('status_pedidos');
+                ->on('status_pedidos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

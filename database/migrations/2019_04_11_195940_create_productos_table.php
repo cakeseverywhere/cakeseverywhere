@@ -17,7 +17,7 @@ class CreateProductosTable extends Migration
             $table->BigIncrements('id');
             $table->string('nom_producto');
             $table->string('desc_producto');
-            $table->date('fecha_registro');
+           // $table->date('fecha_registro');
             $table->timestamps();
         });
     }

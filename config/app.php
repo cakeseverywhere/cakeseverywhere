@@ -178,6 +178,8 @@ return [
          * ide-helper...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //imagenes
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -229,6 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //imagines
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

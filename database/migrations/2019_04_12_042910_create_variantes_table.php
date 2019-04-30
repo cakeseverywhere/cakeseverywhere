@@ -26,7 +26,9 @@ class CreateVariantesTable extends Migration
 
             $table->foreign('fk_id_producto')
                 ->references('id')
-                ->on('productos');
+                ->on('productos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

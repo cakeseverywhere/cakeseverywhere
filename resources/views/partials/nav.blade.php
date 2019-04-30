@@ -19,6 +19,13 @@
             <li class="nav-item {{request()->routeIs('nosotros') ? 'active': ''}}">
                 <a class="nav-link " href="{{route('nosotros')}}">Nosotros</a>
             </li>
+            <!-- desde aqui-->
+            <li class="nav-item {{request()->routeIs('registarProducto') ? 'active': ''}}">
+                <a class="nav-link " href="{{route('registarProducto')}}">Register</a>
+            </li>
+
+            <li class="nav-item ">
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
 

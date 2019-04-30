@@ -22,11 +22,15 @@ class CreateVariantesPromocionesTable extends Migration
 
             $table->foreign('fk_id_variante')
                 ->references('id')
-                ->on('variantes');
+                ->on('variantes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->foreign('fk_id_promociones')
                 ->references('id')
-                ->on('promociones');
+                ->on('promociones')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

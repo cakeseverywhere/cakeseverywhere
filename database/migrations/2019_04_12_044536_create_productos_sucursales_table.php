@@ -20,11 +20,15 @@ class CreateProductosSucursalesTable extends Migration
 
             $table->foreign('fk_id_producto')
                 ->references('id')
-                ->on('productos');
+                ->on('productos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->foreign('fk_id_sucursal')
                 ->references('id')
-                ->on('sucursales');
+                ->on('sucursales')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

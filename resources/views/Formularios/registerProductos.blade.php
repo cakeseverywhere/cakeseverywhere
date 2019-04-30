@@ -20,7 +20,8 @@
                             <form method="POST" action="{{ route('registarProducto') }}" enctype="multipart/form-data">
                                 <!--un ataque de citio cruzado para proteger (csrf) enviar token que verifica que es valido-->
                                 @csrf
-                                @include('flash::message')
+
+                                {{--@include('flash::message')--}}
                                 @if(count($errors)>0)
                                 <div class="alert alert-danger">
                                     @foreach($errors->all() as $error)

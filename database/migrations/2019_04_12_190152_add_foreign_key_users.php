@@ -28,6 +28,8 @@ class AddForeignKeyUsers extends Migration
      */
     public function down()
     {
-        //
+
     }
+
+
 }

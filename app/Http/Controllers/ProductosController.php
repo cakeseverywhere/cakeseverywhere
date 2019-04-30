@@ -73,7 +73,7 @@ class ProductosController extends Controller
         $imagen-> nombre = $name;
         $imagen-> ur_foto = $ttt ;
         $imagen->save();
-        flash('Producto insertado exitosamente');
+//        flash('Producto insertado exitosamente');
 
         return redirect()->route('registarProducto');
 

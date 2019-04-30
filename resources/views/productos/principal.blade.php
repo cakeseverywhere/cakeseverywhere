@@ -57,40 +57,23 @@
             <h2 class="text-uppercase">SUGERENCIAS</h2>
         </div>
         <div class="card-deck" data-current="0">
-                <div class="card start-card">
-                    <img class="card-img-top" src="{{asset('').$p->first()->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$p->first()->nom_producto}}</h5>
-                        <p class="card-text">{{$p->first()->desc_producto}}</p>
-                        <p class="card-text"><small class="text-muted"></small></p>
-                    </div>
-                </div>
+            @forelse($p as $producto)
                 <div class="card ">
-                    <img class="card-img-top" src="{{asset('').$p->get(1)->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
+                    <img class="card-img-top" src="{{asset('').$producto['fotos']->get(0)['ur_foto']}}" width="245" height="180" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{$p->get(1)->nom_producto}}</h5>
-                        <p class="card-text">{{$p->get(1)->desc_producto}}</p>
+                        <h5 class="card-title">{{$producto['nom_producto']}}</h5>
+                        <p class="card-text">{{$producto['desc_producto']}}</p>
                         <p class="card-text"><small class="text-muted"></small></p>
                     </div>
                 </div>
-
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('').$p->get(2)->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{$p->get(2)->nom_producto}}</h5>
-                    <p class="card-text">{{$p->get(2)->desc_producto}}</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
+            @empty
+                <div class="card ">
+                    <div class="card-body">
+                        <h5 class="card-title">No hay datos</h5>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('').$p->get(3)->fotos->get(0)->ur_foto}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{$p->get(3)->nom_producto}}</h5>
-                    <p class="card-text">{{$p->get(3)->desc_producto}}</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                </div>
-            </div>
+            @endforelse
       </div>
     </section>
 

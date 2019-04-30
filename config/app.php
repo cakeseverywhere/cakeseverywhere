@@ -178,8 +178,6 @@ return [
          * ide-helper...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        //imagenes
-        Intervention\Image\ImageServiceProvider::class,
 
     ],
 

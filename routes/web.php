@@ -29,10 +29,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('DirSucursales');
 Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
 
-Route::get('listasucursales/{id}','SucursalesController@show')->name('sucursal');
-
-
-
-
-
-//Route::get('/','SucursalesController@index');

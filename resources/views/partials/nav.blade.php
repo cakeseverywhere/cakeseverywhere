@@ -20,8 +20,8 @@
                 <a class="nav-link " href="{{route('nosotros')}}">Nosotros</a>
             </li>
             <!-- desde aqui-->
-            <li class="nav-item {{request()->routeIs('registarProducto') ? 'active': ''}}">
-                <a class="nav-link " href="{{route('registarProducto')}}">Register</a>
+            <li class="nav-item {{request()->routeIs('registrarSucursal') ? 'active': ''}}">
+                <a class="nav-link " href="{{route('registrarSucursal')}}">Register</a>
             </li>
 
             <li class="nav-item ">

@@ -18,7 +18,7 @@ class FotosSeeders extends Seeder
         foto::create([
             //DB::table('productos')->insert(array(
             'fk_id_producto'=>'1',
-            'nombre'=>'pastel_2.jpg',
+            'nombre'=>'pastel_1.jpg',
             'ur_foto' =>'img/producto/p1.jpg'
 
         ]);
@@ -35,7 +35,7 @@ class FotosSeeders extends Seeder
             //DB::table('productos')->insert(array(
             'fk_id_producto'=>'3',
             'nombre'=>'pastel_3.jpg',
-            'ur_foto' =>'img/producto/p3.jpg'
+            'ur_foto' =>'img/producto/P3.jpg'
 
         ]);
 
@@ -43,7 +43,7 @@ class FotosSeeders extends Seeder
             //DB::table('productos')->insert(array(
             'fk_id_producto'=>'4',
             'nombre'=>'pastel_4.jpg',
-            'ur_foto' =>'img/producto/p4.jpg'
+            'ur_foto' =>'img/producto/P4.jpg'
 
         ]);
 

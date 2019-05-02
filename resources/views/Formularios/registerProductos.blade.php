@@ -57,6 +57,19 @@
                                             </span>
                                         @endif
                                 </div>
+
+                                <div class="form-group ">
+
+                                    <label for="categoria">Categoria</label>
+                                    <!-- old nos sirve para mantener lo escrito-->
+                                    <select class="custom-select" id="categoria" name="categoria">
+                                        <option selected disabled>Seleccionar</option>
+                                        @foreach($categorias as $categoria)
+                                            <option value="{{$categoria['id']}}">{{$categoria['nombre_clasificacion']}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
                                 <div>
                                     <input type="file" name="imagen" id="imagen" >
                                 </div>

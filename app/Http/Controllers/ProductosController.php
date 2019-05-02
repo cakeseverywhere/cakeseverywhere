@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\models\ModuloProducto\foto;
+use App\models\ModuloProducto\historial_producto;
 use http\Message;
 use Illuminate\Http\Request;
 //instacear para poder ocupar el modelo
 use App\models\ModuloProducto\producto;
+use App\models\ModuloProducto\producto_clasificacione;
 
 //para usar el flash
 use Laracasts\Flash\Flash;
@@ -21,6 +23,7 @@ class ProductosController extends Controller
         $productos = producto::all();
 
 
+
         if ($productos -> isNotEmpty() and $productos->count()>7){
 
             $p = $productos -> random(9);
@@ -33,8 +36,11 @@ class ProductosController extends Controller
     }
 
     protected function vistaRegistro(){
-        return view('Formularios.registerProductos');
+        //Corregir...........................................
+        $categorias=producto_clasificacione::all();
+        return view('Formularios.registerProductos',compact('categorias'));
     }
+
     //store=almacenar
     protected function store(Request $request)
     {
@@ -42,6 +48,7 @@ class ProductosController extends Controller
         $this->validate($request,[
             'nom_producto' => ['required', 'string', 'max:100'],
             'desc_producto' => ['required', 'string'],
+           'categoria'=>['required','string'],
            'imagen' => ['required', 'image'],
 
         ]);
@@ -66,6 +73,7 @@ class ProductosController extends Controller
         $request->file('imagen')->move(public_path() .'/'.$path, $name);
         $ttt= $path .'/'.$name;
 
+        //----------guardar en la base de datos en l atabla fotos
         $imagen= new foto();
         //campo de la base de datos, y le asignamos lo que viene del request
         //especificamente del input(en el formulario) que tiene el nombre de nustra variable a asignar
@@ -73,7 +81,15 @@ class ProductosController extends Controller
         $imagen-> nombre = $name;
         $imagen-> ur_foto = $ttt ;
         $imagen->save();
+
+        //----------Guardar en historial producto
+        $categoria=new historial_producto();
+        $categoria->fk_id_producto= $producto->id;
+        $categoria->fk_id_produclasi=$request->input('categoria');
+        $categoria->save();
 //        flash('Producto insertado exitosamente');
+
+
 
         return redirect()->route('registarProducto');
 

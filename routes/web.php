@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::view('nosotros','informative.nosotros')->name('nosotros');
 
 
+
 Route::view('pasteles','productos.pasteles')->name('pasteles');
 
 

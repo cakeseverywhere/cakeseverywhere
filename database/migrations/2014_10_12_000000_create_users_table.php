@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('tel_fijo');
             $table->string('tel_celular')->unique();
-            $table->unsignedBigInteger('fk_id_privilegios');
-            $table->unsignedBigInteger('fk_id_categorias_usuarios');
+
+            $table->unsignedBigInteger('fk_id_categorias_usuarios') ->default(2);
 
             $table->rememberToken();
             $table->timestamps();

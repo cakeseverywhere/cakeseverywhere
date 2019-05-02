@@ -15,13 +15,15 @@ class CreateFotosTable extends Migration
     {
         Schema::create('fotos', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->unsignedBigInteger('fk_id_variante');
+            $table->unsignedBigInteger('fk_id_producto');
             $table->string('nombre');
-            $table->string('ur_foto');
+            $table->string('ur_foto',1000)->nullable();
 
-            $table->foreign('fk_id_variante')
+            $table->foreign('fk_id_producto')
                 ->references('id')
-                ->on('variantes');
+                ->on('productos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

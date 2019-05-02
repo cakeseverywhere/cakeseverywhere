@@ -37,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //metodo para buscar a un usuario por email
+    public static function findByEmail($email){
+        return static::where(compact('email'))->first();
+    }
 }

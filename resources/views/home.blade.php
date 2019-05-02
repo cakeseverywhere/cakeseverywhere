@@ -12,6 +12,9 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
+                        <div>
+                            {{$direcciones_sucursale->direcciones_sucursales}}
+                        </div>
                     @endif
 
                     Iniciaste Sesión

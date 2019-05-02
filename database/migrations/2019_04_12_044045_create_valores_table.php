@@ -21,7 +21,9 @@ class CreateValoresTable extends Migration
 
             $table->foreign('fk_id_caracteristicas')
                 ->references('id')
-                ->on('caracteristicas');
+                ->on('caracteristicas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

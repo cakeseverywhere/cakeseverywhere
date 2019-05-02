@@ -17,13 +17,18 @@ class CreateHistorialProductosTable extends Migration
             $table->BigIncrements('id');
             $table->unsignedBigInteger('fk_id_producto');
             $table->unsignedBigInteger('fk_id_produclasi');
+            $table->date('fecha_cambio');
 
             $table->foreign('fk_id_producto')
                 ->references('id')
-                ->on('productos');
+                ->on('productos')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreign('fk_id_produclasi')
                 ->references('id')
-                ->on('producto_clasificaciones');
+                ->on('producto_clasificaciones')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

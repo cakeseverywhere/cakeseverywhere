@@ -20,7 +20,9 @@ class CreateCaracteristicasTable extends Migration
 
             $table->foreign('fk_id_variante')
                 ->references('id')
-                ->on('variantes');
+                ->on('variantes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');;
             $table->timestamps();
         });
     }

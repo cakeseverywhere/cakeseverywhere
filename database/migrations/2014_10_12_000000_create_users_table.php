@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('tel_fijo');
             $table->string('tel_celular')->unique();
-            $table->date('fecha_registro');
             $table->unsignedBigInteger('fk_id_privilegios');
             $table->unsignedBigInteger('fk_id_categorias_usuarios');
 
@@ -40,6 +39,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('users');
     }
 }

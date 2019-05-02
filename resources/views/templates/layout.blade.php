@@ -9,6 +9,7 @@
     <title>Cakeseverywhere</title>
     <!-- boostrap css -->
     <link href="{{asset('css/lib/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- flash mensajes<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
 
     <!-- Fonts -->
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">

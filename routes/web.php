@@ -13,8 +13,9 @@
 
 Route::get('/', 'ProductosController@index')->name('inicio');
 
-Route::get('registerProductos', 'ProductosController@vistaRegistro')->name('registarProducto');;
+Route::get('registerProductos', 'ProductosController@vistaRegistro')->name('registarProducto');
 Route::post('registerProductos', 'ProductosController@store');
+Route::get('infoProductos', 'ProductosController@show');
 
 Route::view('nosotros','informative.nosotros')->name('nosotros');
 

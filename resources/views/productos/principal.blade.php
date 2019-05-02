@@ -1,5 +1,6 @@
 @extends('templates.layout')
 @section('content')
+    @include('productos.modals.producto_modal')
     <div class="bd-example">
         <div id="carouselHead" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -58,12 +59,21 @@
         </div>
         <div class="card-deck" data-current="0">
             @forelse($p as $producto)
-                <div class="card ">
-                    <img class="card-img-top" src="{{asset('').$producto['fotos']->get(0)['ur_foto']}}" width="245" height="180" alt="Card image cap">
+                <div class="card {{$loop->first?  'start-card':'' }} ">
+                    <a class="info-producto" data-id="{{ $producto['id'] }}">
+
+                        <img class="card-img-top" src="{{asset('').$producto['fotos']->get(0)['ur_foto']}}" width="245" height="180" alt="Card image cap">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">{{$producto['nom_producto']}}</h5>
                         <p class="card-text">{{$producto['desc_producto']}}</p>
                         <p class="card-text"><small class="text-muted"></small></p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-left">$</div>
+                        <div class="float-right">
+                            <i class="fa fa-shopping-cart" data-toggle="modal" data-target="#producto-modal"></i>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -72,7 +82,6 @@
                         <h5 class="card-title">No hay datos</h5>
                     </div>
                 </div>
-
             @endforelse
       </div>
     </section>
@@ -124,6 +133,40 @@
             </div>
         </div>
     </section>
-
     <!-- ENDLOMAS VENDIDO-->
+
+@endsection
+
+@section('javascript')
+    <script src="{{asset('js/principal.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+         $('.info-producto').on('click', function (e) {
+             $.ajax({
+                 url: "{{url('infoProductos')}}",
+                 method: 'GET',
+                 data: {"id": $(this).data('id')},
+                 dataType: 'json',
+                 beforeSend: function () {
+                       $("#producto-modal").modal('show');
+                       $("#loader-modal-producto").show();
+                 },
+                 success: function (data) {
+                     $("#img-modal-producto").prop('src', "{{asset('')}}"+data.fotos[0].ur_foto);
+                     $("#titulo-modal-producto").text(data.nom_producto);
+                     $("#desc-producto-modal").text(data.desc_producto);
+                 },
+                 complete: function () {
+
+                     $("#datos-modal").show();
+                     $("#loader-modal-producto").hide();
+                 },
+                 error: function (xhr, status, thrownError) {
+                    alert('Error: '+xhr + 'mensaje: '+ thrownError);
+                 }
+             });
+         });
+
+        });
+    </script>
 @endsection

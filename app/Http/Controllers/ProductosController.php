@@ -15,6 +15,7 @@ use Laracasts\Flash\Flash;
 use Intervention\Image\Image;
 ////usar esta calse para almanecar la imagen
 use Illuminate\Support\Facades\Storage;
+use function MongoDB\BSON\toJSON;
 
 
 class ProductosController extends Controller
@@ -99,5 +100,9 @@ class ProductosController extends Controller
 
     }
 
-
+    protected function show(Request $request){
+        $producto = producto::findOrFail($request->id);
+        $producto->fotos;
+        return Response::json($producto);
+    }
 }

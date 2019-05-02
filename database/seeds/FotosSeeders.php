@@ -103,6 +103,13 @@ class FotosSeeders extends Seeder
             'ur_foto' =>'img/producto/pastel_11.jpeg'
 
         ]);
+        foto::create([
+            //DB::table('productos')->insert(array(
+            'fk_id_producto'=>'12',
+            'nombre'=>'pastel_12.jpg',
+            'ur_foto' =>'img/producto/pastel_12.jpg'
+
+        ]);
 
 
 

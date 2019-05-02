@@ -49,6 +49,7 @@ class ProductosController extends Controller
         $this->validate($request,[
             'nom_producto' => ['required', 'string', 'max:100'],
             'desc_producto' => ['required', 'string'],
+           'precio'=>['required', 'numeric'],
            'categoria'=>['required','string'],
            'imagen' => ['required', 'image'],
 
@@ -59,6 +60,7 @@ class ProductosController extends Controller
         $producto= new producto();
         $producto-> nom_producto =$request->input('nom_producto');
         $producto-> desc_producto =$request->input('desc_producto');
+        $producto-> precio =$request->input('precio');
         //guardar en nuestra base de datos
         $producto->save();
 

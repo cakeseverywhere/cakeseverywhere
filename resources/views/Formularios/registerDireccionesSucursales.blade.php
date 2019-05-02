@@ -14,10 +14,10 @@
                             <img src="{{asset('img/icons/logo.png')}}" alt="logo">
                         </div>
                         <div class="col-10 col-md-10">
-                            <h2 class="text-center">Registrar nueva dirección de sucursal</h2>
+                            <h2 class="text-center">Registrar nueva sucursal</h2>
 
-                            <form method="POST" action="{{ route('DirSucursales') }}">
-                                <!--un ataque de citio cruzado para proteger (csrf) enviar token que verifica que es valido-->
+                            <form method="POST" action="{{ route('registrarSucursal') }}">
+                                <!--un ataque de sitio cruzado para proteger (csrf) enviar token que verifica que es valido-->
                                 @csrf
                                 @if(count($errors)>0)
                                 <div class="alert alert-danger">
@@ -28,6 +28,54 @@
                                 </div>
                                 @endif
 
+                                <div class="form-group ">
+
+                                    <label for="nombre_sucursal">Nombre de la sucursal</label>
+                                    <!-- old nos sirve para mantener lo escrito-->
+                                    <input id="nombre_sucursal" type="text"
+                                           class="form-control{{ $errors->has('nombre_sucursal') ? ' is-invalid' : '' }}"
+                                           name="nombre_sucursal" value="{{ old('nombre_sucursal') }}"
+                                           required autofocus>
+
+                                    @if ($errors->has('nombre_sucursal'))
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('nombre_sucursal') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+                                <div class="form-group ">
+
+                                    <label for="nombre_sucursal">Nombre del propietario de la sucursal</label>
+                                    <!-- old nos sirve para mantener lo escrito-->
+                                    <input id="propietario" type="text"
+                                           class="form-control{{ $errors->has('propietario') ? ' is-invalid' : '' }}"
+                                           name="propietario" value="{{ old('propietario') }}"
+                                           required autofocus>
+
+                                    @if ($errors->has('propietario'))
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('propietario') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group ">
+
+                                    <label for="fecha_registro">Fecha de Registro</label>
+                                    <!-- old nos sirve para mantener lo escrito-->
+                                    <input id="fecha_registro" type="date"
+                                           class="form-control{{ $errors->has('nombre_sucursal') ? ' is-invalid' : '' }}"
+                                           name="fecha_registro" value="{{ old('fecha_registro') }}"
+                                           required autofocus>
+
+                                    @if ($errors->has('fecha_registro'))
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('fecha_registro') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+
+                                <label >Direccion Sucursal</label>
                                 <div class="form-group ">
 
                                         <label for="estado">Estado</label>

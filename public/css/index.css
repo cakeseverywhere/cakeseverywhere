@@ -45,3 +45,69 @@
     background-color: #F4CCD0;
     border-color: #F4CCD4;
 }
+
+
+.uploadOuter {
+    text-align: center;
+    padding: 0px;
+}
+.dragBox{
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    color: #37474F;
+    background-color: #FFFFFF;
+    border: 2px dashed #37474F;
+    transition: transform 0.3s;
+}
+.dragBoxportada{
+    height: 210px;
+    width: 314px;
+
+}
+.dragBoxPaso{
+    height: 105px;
+    width: 200px;
+}
+
+.dragBox:hover{
+    border-color: #aadaec;
+    color: #aadaec;
+}
+
+
+input[type="file"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 15px;
+}
+.draging {
+    border-color: #aadaec;
+    color: #aadaec;
+}
+.preview {
+    text-align: center;
+    min-width: 100%;
+}
+.img-foto{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 210px;
+    width: 314px;
+}
+
+
+.img-paso{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 105px;
+    width: 200px;
+}

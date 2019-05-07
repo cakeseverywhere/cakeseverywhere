@@ -16,9 +16,9 @@ class CreateProductoClasificacionesTable extends Migration
         Schema::create('producto_clasificaciones', function (Blueprint $table) {
             $table->BigIncrements('id');
             $table->string('nombre_clasificacion');
-            $table->binary('status');
+            $table->boolean('status')->default(0);
             $table->string('desc_clasi');
-            $table->date('fecha_registro');
+            //$table->date('fecha_registro');
             $table->timestamps();
         });
     }

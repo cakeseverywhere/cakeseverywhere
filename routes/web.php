@@ -31,6 +31,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('DirSucursales');
+Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('registrarSucursal');
 Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
 

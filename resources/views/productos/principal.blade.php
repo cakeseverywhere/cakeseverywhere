@@ -72,7 +72,7 @@
         <div class="title-text py-2">
             <h2 class="text-uppercase">SUGERENCIAS</h2>
         </div>
-        <div class="card-deck" data-current="0">
+        <div class="card-columns" data-current="0">
             @forelse($p as $producto)
                 <div class="card {{$loop->first?  'start-card':'' }} ">
                     <div class="container-img-see">
@@ -162,7 +162,7 @@
 @section('javascript')
     <script src="{{asset('js/principal.js')}}"></script>
     <script>
-        console.log("datos storage",   localStorage.removeItem('productCar'));
+
         $(document).ready(function () {
          $('.info-producto').on('click', function (e) {
              $.ajax({
@@ -179,6 +179,7 @@
                      $("#img-modal-producto").prop('src', "{{asset('')}}"+data.fotos[0].ur_foto);
                      $("#id-product-modal").text(data.id);
                      $("#titulo-modal-producto").text(data.nom_producto);
+                     $("#price-modal-producto").text('$'+data.precio);
                      $("#desc-producto-modal").text(data.desc_producto);
                  },
                  complete: function () {
@@ -206,7 +207,6 @@
 
 
         });
-
 
     </script>
 @endsection

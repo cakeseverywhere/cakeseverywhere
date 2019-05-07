@@ -158,23 +158,30 @@
 @section('javascript')
     <script>
         $(document).ready(function () {
-            $(".btn-delete-row").on('click', function () {
+            $(".btn-delete-row").on('click keyup', function () {
                 var row = $(this).parents('tr');
+                var nomPorducto = row.find('td').get(0);
+                console.log("busca en"+ arrayProdCart+ "Tenga"+ $(nomPorducto).text());
+                console.log(arrayProdCart.indexOf($(nomPorducto).text()));
+
                 row.remove();
             });
             $('.input-increment-row').on('click', function () {
                 var precio = $(this).parents().prev('td').text().replace('$', '');
                 var cantidad = parseInt($(this).val());
                 var tdCosto = $(this).parents().next('td');
-                tdCosto.text("$" + parseFloat(precio) * cantidad);
+                var costo=parseFloat(precio) * cantidad;
+                tdCosto.text("$" + costo.toFixed(2));
             });
         });
 
     </script>
     <script>
         var arrayProdCart = [];
+        var arrayResumen = [];
         var lastID='-1';
-        var jsonCart = {'id': -1, 'producto': '', 'precio': 120.58, 'cantidad': -2, 'img': ''}
+
+        var jsonCart = {'id': -1, 'producto': '', 'precio': 120.58, 'cantidad': -2, 'img': ''};
 
         /**
          *
@@ -237,29 +244,24 @@
         }
 
         function completeTableCart() {
-            var rowResum = '';
             var rowTable='';
             var cantidad;
             var costo;
-            var total = 0;
             var jsonCart;
+            var aux;
             $.each(arrayProdCart, function (key, value) {
                 jsonCart = StringToJson(value);
 
                 if (jsonCart != false) {
                     cantidad = parseInt(jsonCart.cantidad);
                     costo = cantidad * parseFloat(jsonCart.precio);
-                    total +=costo;
-                    rowResum = "<dl class='row'>" +
-                        "<dd class='col-sm-8'>" +
-                        jsonCart.producto +
-                        "</dd>" +
-                        "<dd class='col-sm-4'>" +
-                        "$ " + costo +
-                        "</dd>" +
-                        "</dl>" +
-                        "<hr>";
-                    $("#resumen-content").append(rowResum);
+                    var jsonResuem = {'cantidad': 1, 'producto': '', 'costo': 102.25};
+
+                    jsonResuem.producto = jsonCart.producto;
+                    jsonResuem.cantidad = jsonCart.cantidad;
+                    jsonResuem.costo = costo;
+
+                    arrayResumen.push(jsonResuem);
 
 
 
@@ -297,17 +299,38 @@
             });
 
 
+            upDateResumen();
+
+
+        }
+
+
+        function upDateResumen() {
+            var rowResum;
+            var total = 0;
+            $.each(arrayResumen, function (key, value) {
+                total += value.costo;
+                rowResum = "<dl class='row'>" +
+                    "<dd class='col-sm-8'>" +
+                    value.producto +
+                    "</dd>" +
+                    "<dd class='col-sm-4'>" +
+                    "$ " + value.costo +
+                    "</dd>" +
+                    "</dl>" +
+                    "<hr>";
+                $("#resumen-content").append(rowResum);
+            });
 
 
             rowResum = "<dl class='row'>" +
-                "<dd class='col-sm-8'>Total</dd>"+
+                "<dd class='col-sm-8'>Total</dd>" +
                 "<dd class='col-sm-4'>" +
-                "$ " + total +
+                "$ " + total.toFixed(2); +
                 "</dd>" +
                 "</dl>" +
                 "<hr>";
             $("#resumen-content").append(rowResum);
-
         }
 
 

@@ -15,7 +15,7 @@ class Direcciones_SucursaleSeeders extends Seeder
         //insertar datos
         $faker=Faker::create();
 
-        for ($i=0;$i<40;$i++)
+        for ($i=0;$i<30;$i++)
         {
             //modelo para insertar datos en alto nivel
             App\models\ModuloProducto\direcciones_sucursale::create([

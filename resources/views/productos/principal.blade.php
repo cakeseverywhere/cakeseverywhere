@@ -162,7 +162,7 @@
 @section('javascript')
     <script src="{{asset('js/principal.js')}}"></script>
     <script>
-        console.log("datos storage",   localStorage.getItem('productCar'));
+        console.log("datos storage",   localStorage.removeItem('productCar'));
         $(document).ready(function () {
          $('.info-producto').on('click', function (e) {
              $.ajax({

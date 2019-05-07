@@ -104,7 +104,7 @@
                                     <thead class="text-center">
 
                                     <tr>
-                                        <th class="font-weight-bold">
+                                        <th class="font-weight-bold" >
                                             <strong>Número de pedido</strong>
                                         </th>
                                         <th class="font-weight-bold">
@@ -267,7 +267,7 @@
 
                     rowTable="<tr><th scope='row'>" +
                         "<img src=" +
-                        "alt='foto-producto' class='img-fluid z-depth-0'>" +
+                         jsonCart.img  +" class='img-fluid z-depth-0' style='max-height: 100px;'>" +
                         "</th>" +
                         "<td>" +
                         "<h5 class='mt-3'>" +

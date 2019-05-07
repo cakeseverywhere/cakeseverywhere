@@ -87,6 +87,6 @@ class ProductosController extends Controller
     protected function show(Request $request){
         $producto = producto::findOrFail($request->id);
         $producto->fotos;
-        return Response::json($producto);
+        return $producto;
     }
 }

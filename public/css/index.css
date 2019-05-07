@@ -8,6 +8,28 @@
 }
 
 
+
+.text-img-center {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    display: none;
+}
+.container-img-see{
+    position: relative;
+
+}
+.container-img-see:hover .text-img-center{
+    display: inline;
+}
+.container-img-see:hover .card-img-top:hover{
+
+    opacity: 0.3;
+}
+
 .navbar-black a,.navbar-red a{
     color: white;
 }
@@ -44,4 +66,17 @@
     color: #1b1e21;
     background-color: #F4CCD0;
     border-color: #F4CCD4;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #ffc107 !important;
+}
+.custom-yellow-text{
+    color: #ffc107;
+}
+
+
+.custom-yellow-text:hover{
+    color: #000;
 }

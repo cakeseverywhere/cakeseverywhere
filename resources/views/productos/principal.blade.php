@@ -57,7 +57,7 @@
         <div class="title-text py-2">
             <h2 class="text-uppercase">SUGERENCIAS</h2>
         </div>
-        <div class="card-deck" data-current="0">
+        <div class="card-columns" data-current="0">
             @forelse($p as $producto)
                 <div class="card {{$loop->first?  'start-card':'' }} ">
                     <a class="info-producto" data-id="{{ $producto['id'] }}">

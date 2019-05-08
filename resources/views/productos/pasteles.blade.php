@@ -1,9 +1,21 @@
 @extends('templates.layout')
 @section('content')
+    <div class="d-none">
+        <form id="add-product-form" action="{{url('cart/addProducto')}}" method="post">
+            @csrf
+            <input id="idProduct" name="idProduct" value="">
+            <input id="nomProduct" name="nomProduct" value="">
+            <input id="cantidad" name="cantidad" value="1">
+            <input id="price" name="price" value="0.0">
+            <input id="imgProduct" name="imgProduct" value="">
+            <input type="submit"/>
+        </form>
+    </div>
     @include('productos.modals.producto_modal')
     <!--incio imagen pagina pateles-->
     <div class="img-producto " style="background-color: #4e555b">
-        <img class="img-fluid rounded mx-auto d-block" src="{{asset('').$p->get(0)->fotos->get(0)['ur_foto']}}" alt="500px" width="500px" >
+        <img class="img-fluid rounded mx-auto d-block" src="{{asset('').$p->get(0)->fotos->get(0)['ur_foto']}}"
+             alt="500px" width="500px">
     </div>
     <!--endimagen-->
 
@@ -16,19 +28,28 @@
         <div class="card-columns" data-current="0">
             @foreach($tpasteles as $tpastel)
                 <div class="card {{$loop->first?  'start-card':'' }} ">
-                    <a class="info-producto" data-id="{{ $tpastel['id'] }}">
+                    <div class="container-img-see">
+                        <a class="info-producto" data-id="{{ $tpastel['id'] }}">
 
-                        <img class="card-img-top" src="{{asset('').$tpastel['fotos']->get(0)['ur_foto']}}" width="245" height="180" alt="Card image cap">
-                    </a>
+                            <img class="card-img-top" src="{{asset('').$tpastel['fotos']->get(0)['ur_foto']}}"
+                                 width="245" height="180" alt="Card image cap">
+                        </a>
+                        <span class="text-img-center">Ver</span>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{$tpastel['nom_producto']}}</h5>
                         <p class="card-text">{{$tpastel['desc_producto']}}</p>
-                        <p class="card-text"><small class="text-muted"></small></p>
+                        <p class="card-text">
+                            <small class="text-muted"></small>
+                        </p>
                     </div>
                     <div class="card-footer">
                         <div class="float-left">$</div>
                         <div class="float-right">
-                            <i class="fa fa-shopping-cart" data-toggle="modal" data-target="#producto-modal"></i>
+                            <a class="info-producto" data-id="{{ $tpastel['id'] }}">
+                                <i class="fa fa-shopping-cart" data-toggle="modal"
+                                   data-target="#producto-modal"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -62,9 +83,11 @@
                         $("#loader-modal-producto").show();
                     },
                     success: function (data) {
-                        $("#img-modal-producto").prop('src', "{{asset('')}}"+data.fotos[0].ur_foto);
+                        $("#img-modal-producto").prop('src', "{{asset('')}}" + data.fotos[0].ur_foto);
+                        $("#id-product-modal").text(data.id);
                         $("#titulo-modal-producto").text(data.nom_producto);
                         $("#desc-producto-modal").text(data.desc_producto);
+                        $("#price-modal-producto").text('$'+data.precio);
                     },
                     complete: function () {
 
@@ -72,11 +95,20 @@
                         $("#loader-modal-producto").hide();
                     },
                     error: function (xhr, status, thrownError) {
-                        alert('Error: '+xhr + 'mensaje: '+ thrownError);
+                        alert('Error: ' + xhr + 'mensaje: ' + thrownError);
                     }
                 });
             });
+            $('#add-cart-btn').on('click', function () {
+                $('#idProduct').val($("#id-product-modal").text());
+                $('#nomProduct').val($("#titulo-modal-producto").text());
+                $('#price').val($("#price-modal-producto").text().replace('$',''));
+                $('#cantidad').val($("#cantidad-modal").val());
+                $("#imgProduct").val($("#img-modal-producto").prop('src'));
 
+                $("#add-product-form").submit();
+
+            });
         });
     </script>
 @endsection

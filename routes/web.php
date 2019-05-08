@@ -21,11 +21,9 @@ Route::view('nosotros','informative.nosotros')->name('nosotros');
 
 Route::view('pasteles','productos.pasteles')->name('pasteles');
 
+Route::view('cart','productos.cart')->name('cart');
 
 
-Route::view('cart/{idProducto?, cantidad?}','productos.cart')->name('cart');
-
-Route::post('cart/addProducto','ModuloPedido\PedidosController@addProduct');
 
 Auth::routes();
 

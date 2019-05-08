@@ -1,17 +1,8 @@
-function verDatosProducto(id){
-
-}
-
 
 $(document).ready(function () {
 
 
-
-
-
-
-
-   // Ingrementa el valor del input
+    // Ingrementa el valor del input
     $('.btn-increment').on('click',function () {
        var input=$(this).parents().parents().children('input');
        var cantidad= parseInt(input.val())+ 1;
@@ -27,5 +18,11 @@ $(document).ready(function () {
         input.val(cantidad);
     });
 
+
+    $('#add-cart-btn').on('click', function () {
+        addProducto();
+       location.replace('/cart');
+
+    });
 
 });

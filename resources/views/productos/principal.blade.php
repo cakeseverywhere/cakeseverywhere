@@ -79,8 +79,8 @@
                         <a class="info-producto" data-id="{{ $producto['id'] }}">
 
                             <img class="card-img-top" src="{{asset('').$producto['fotos']->get(0)['ur_foto']}}" width="245" height="180" alt="Card image cap">
+                             <span class="text-img-center">Ver</span>
                         </a>
-                        <span class="text-img-center">Ver</span>
                     </div>
 
                     <div class="card-body">
@@ -160,53 +160,45 @@
 @endsection
 
 @section('javascript')
+    <script src="{{asset('js/funcionesStorage.js')}}"></script>
     <script src="{{asset('js/principal.js')}}"></script>
     <script>
-
         $(document).ready(function () {
-         $('.info-producto').on('click', function (e) {
-             $.ajax({
-                 url: "/infoProductos",
-                 method: 'GET',
-                 data: {"id": $(this).data('id')},
-                 dataType: 'json',
-                 beforeSend: function () {
-                       $("#producto-modal").modal('show');
-                       $("#loader-modal-producto").show();
-                 },
-                 success: function (data) {
-
-                     $("#img-modal-producto").prop('src', "{{asset('')}}"+data.fotos[0].ur_foto);
-                     $("#id-product-modal").text(data.id);
-                     $("#titulo-modal-producto").text(data.nom_producto);
-                     $("#price-modal-producto").text('$'+data.precio);
-                     $("#desc-producto-modal").text(data.desc_producto);
-                 },
-                 complete: function () {
-
-                     $("#datos-modal").show();
-                     $("#loader-modal-producto").hide();
-                 },
-                 error: function (xhr, status, thrownError) {
-                    alert('Error: '+xhr + 'mensaje: '+ thrownError);
-                 }
-             });
-         });
 
 
-            $('#add-cart-btn').on('click', function () {
-                $('#idProduct').val($("#id-product-modal").text());
-                $('#nomProduct').val($("#titulo-modal-producto").text());
-                $('#price').val($("#price-modal-producto").text().replace('$',''));
-                $('#cantidad').val($("#cantidad-modal").val());
-                $("#imgProduct").val($("#img-modal-producto").prop('src'));
+            $('.info-producto').on('click', function (e) {
+                $.ajax({
+                    url: "/infoProductos",
+                    method: 'GET',
+                    data: {"id": $(this).data('id')},
+                    dataType: 'json',
+                    beforeSend: function () {
+                        $("#producto-modal").modal('show');
+                        $("#loader-modal-producto").show();
+                    },
+                    success: function (data) {
 
-                $("#add-product-form").submit();
+                        $("#img-modal-producto").prop('src', "{{asset('')}}" + data.fotos[0].ur_foto);
+                        $("#id-product-modal").text(data.id);
+                        $("#titulo-modal-producto").text(data.nom_producto);
+                        $("#price-modal-producto").text('$' + data.precio);
+                        $("#desc-producto-modal").text(data.desc_producto);
+                    },
+                    complete: function () {
 
+                        $("#datos-modal").show();
+                        $("#loader-modal-producto").hide();
+                    },
+                    error: function (xhr, status, thrownError) {
+                        alert('Error: ' + xhr + 'mensaje: ' + thrownError);
+                    }
+                });
             });
 
 
-        });
 
+
+
+        });
     </script>
 @endsection

@@ -14,19 +14,26 @@
     left: 0;
     top: 50%;
     width: 100%;
+
+    opacity: 0.3;
     text-align: center;
     font-size: 18px;
     display: none;
+    z-index: 100;
+
+}
+#img-modal-producto{
+    max-height: 200px;
+    width: 100%;
 }
 .container-img-see{
     position: relative;
 
 }
 .container-img-see:hover .text-img-center{
-    display: inline;
+    display: block;
 }
 .container-img-see:hover .card-img-top:hover{
-
     opacity: 0.3;
 }
 

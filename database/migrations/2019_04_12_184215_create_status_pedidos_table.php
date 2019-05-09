@@ -18,8 +18,8 @@ class CreateStatusPedidosTable extends Migration
             $table->integer('num_articulos');
             $table->float('sub_total',10,2);
             $table->float('total',10,2);
-            $table->float('iva_impuesto',5,1);
-            $table->float('descuento_porciento',5,1);
+            $table->float('iva_impuesto',5,1)->default('0.0');
+            $table->float('descuento_porciento',5,1)->default('0.0');
             $table->unsignedBigInteger('fk_id_cate_status_pedidos');
             $table->timestamps();
             $table->foreign('fk_id_cate_status_pedidos')->references('id')->on('cate_status_pedidos');

@@ -105,7 +105,8 @@ function ajaxPedido(){
             $("#spin-pedido").show();
         },
         success: function(data){
-                console.log(data);
+            localStorage.removeItem('productCar');
+            console.log(data);
         },
         complete: function () {
             $("#spin-pedido").hide();

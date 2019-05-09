@@ -90,9 +90,6 @@ class ProductosController extends Controller
         $categoria->fk_id_producto= $producto->id;
         $categoria->fk_id_produclasi=$request->input('categoria');
         $categoria->save();
-//        flash('Producto insertado exitosamente');
-
-
 
         return redirect()->route('registarProducto');
 

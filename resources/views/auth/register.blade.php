@@ -71,14 +71,42 @@
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                         @endif
-                                </div>
+                                    </div>
 
                                     <div class="col-6 col-md-6">
                                     <label for="password-confirm">Confirmar Contraseña</label>
 
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                    </div>
                                 </div>
+
+                                <div class="form-group">
+
+                                    <label for="tel_fijo">Telefono fijo</label>
+
+                                    <input id="tel_fijo" type="tel_fijo" class="form-control{{ $errors->has('tel_fijo') ? ' is-invalid' : '' }}" name="tel_fijo" value="{{ old('tel_fijo') }}" required>
+
+                                    @if ($errors->has('tel_fijo'))
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('tel_fijo') }}</strong>
+                                            </span>
+                                    @endif
                                 </div>
+                                <div class="form-group">
+
+                                    <label for="tel_celular">Telefono celular</label>
+
+                                    <input id="tel_celular" type="tel_fijo" class="form-control{{ $errors->has('tel_celular') ? ' is-invalid' : '' }}" name="tel_celular" value="{{ old('tel_celular') }}" required>
+
+                                    @if ($errors->has('tel_fijo'))
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('tel_celular') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+
+
+
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">

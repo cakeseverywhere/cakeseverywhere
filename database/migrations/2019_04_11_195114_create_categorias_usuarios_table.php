@@ -16,7 +16,7 @@ class CreateCategoriasUsuariosTable extends Migration
         Schema::create('categorias_usuarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->binary('status');
+            $table->integer('status');
             $table->string('desc_cate');
             $table->timestamps();
         });

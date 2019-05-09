@@ -30,6 +30,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware('usuarioAdmin')->group(function (){
+    Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('registrarSucursal');
+    Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
+});
+
+
+
 Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('registrarSucursal');
 Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
 Route::post('cart/pedido', 'ModuloPedido\PedidosController@addPedido');

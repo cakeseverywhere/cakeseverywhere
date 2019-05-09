@@ -20,6 +20,7 @@ class CreatePrivilegiosTable extends Migration
             $table->string('desc_privileg');
             $table->timestamps();
         });
+
     }
 
     /**

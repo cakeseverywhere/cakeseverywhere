@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     //agregamos last para agrefae el apellido(last)
     protected $fillable = [
-        'name','last', 'email', 'password',
+        'name','last', 'email', 'password','tel_fijo','tel_celular'
     ];
 
     /**

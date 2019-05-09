@@ -28,6 +28,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('registrarSucursal');
-Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
+Route::middleware('usuarioAdmin')->group(function (){
+    Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('registrarSucursal');
+    Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
+});
+
+
 

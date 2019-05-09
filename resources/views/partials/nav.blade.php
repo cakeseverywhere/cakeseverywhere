@@ -5,6 +5,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item {{request()->routeIs('inicio') ? 'active': ''}}">
@@ -20,12 +21,18 @@
                 <a class="nav-link " href="{{route('nosotros')}}">Nosotros</a>
             </li>
             <!-- desde aqui-->
+
+
+
+
             <li class="nav-item {{request()->routeIs('registrarSucursal') ? 'active': ''}}">
                 <a class="nav-link " href="{{route('registrarSucursal')}}">Register</a>
             </li>
 
+
             <li class="nav-item ">
             </li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
@@ -48,6 +55,10 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+                                <a class="dropdown-item" style="color:black; !important;" href="{{ route('nosotros') }}">
+                                    Datos
+                                </a>
+
                             </div>
                         </li>
                         <li class="nav-item">

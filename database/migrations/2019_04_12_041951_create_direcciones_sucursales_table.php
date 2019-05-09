@@ -23,8 +23,8 @@ class CreateDireccionesSucursalesTable extends Migration
             $table->string('num_int');
             $table->string('codigo_postal');
             $table->string('otras_referencias');
-            $table->integer('telefono_fijo');
-            $table->integer('telefono_celular');
+            $table->string('telefono_fijo');
+            $table->string('telefono_celular');
             $table->timestamps();
         });
     }

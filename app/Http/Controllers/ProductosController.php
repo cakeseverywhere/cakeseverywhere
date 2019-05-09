@@ -105,6 +105,12 @@ class ProductosController extends Controller
     protected function show(Request $request){
         $producto = producto::findOrFail($request->id);
         $producto->fotos;
-        return Response::json($producto);
+        return $producto;
+    }
+
+    protected function todoPastel(){
+        $tpasteles=producto::paginate(6);
+        $p = $tpasteles -> random(1);
+        return view('productos.pasteles',compact('tpasteles','p'));
     }
 }

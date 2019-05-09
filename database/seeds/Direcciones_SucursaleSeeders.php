@@ -15,7 +15,7 @@ class Direcciones_SucursaleSeeders extends Seeder
         //insertar datos
         $faker=Faker::create();
 
-        for ($i=0;$i<30;$i++)
+        for ($i=0;$i<10;$i++)
         {
             //modelo para insertar datos en alto nivel
             App\models\ModuloProducto\direcciones_sucursale::create([
@@ -28,8 +28,9 @@ class Direcciones_SucursaleSeeders extends Seeder
                 'num_int' => $faker->buildingNumber,
                 'codigo_postal' => $faker->buildingNumber,
                 'otras_referencias' => $faker->text,
-                'telefono_fijo' => $faker->biasedNumberBetween($min=0,9),
-                'telefono_celular' => $faker->randomNumber(9)
+                //'telefono_fijo' => $faker->randomNumber(10),
+                'telefono_fijo' => '7221234569',
+                'telefono_celular' => '7221234569'
 
             ]);
         }

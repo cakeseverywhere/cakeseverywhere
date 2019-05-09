@@ -50,8 +50,8 @@ class DireccionesSucursalesController extends Controller
             'num_int' => ['required', 'string', 'max:50'],
             'codigo_postal' => ['required', 'max:20'],
             'otras_referencias' => ['required', 'string', 'max:255'],
-            'telefono_fijo' => ['required', 'max:10'],
-            'telefono_celular' => ['required', 'max:10'],
+            'telefono_fijo' => ['required', 'max:11'],
+            'telefono_celular' => ['required', 'max:11'],
     ]);
         //------------------METODO 2---------------
         //la direferencias es que los input deben de estar con el mismo nombre de los campos en la tabla de la base de datos

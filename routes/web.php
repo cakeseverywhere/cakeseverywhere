@@ -20,9 +20,13 @@ Route::get('infoProductos', 'ProductosController@show');
 Route::view('nosotros','informative.nosotros')->name('nosotros');
 
 
+Route::get('pasteles','ProductosController@todoPastel')->name('pasteles');
 
-Route::view('pasteles','productos.pasteles')->name('pasteles');
 
+
+Route::view('cart/{idProducto?, cantidad?}','productos.cart')->name('cart');
+
+Route::post('cart/addProducto','ModuloPedido\PedidosController@addProduct');
 
 Auth::routes();
 

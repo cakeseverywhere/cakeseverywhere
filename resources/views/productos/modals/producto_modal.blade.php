@@ -12,10 +12,11 @@
 
                     <div class="loader"></div>
                 </div>
-                <div id="datos-modal" style="display: none">
+                <div id="datos-modal" style="">
 
                     <div class="row">
                         <div class="col-md-6">
+                            <span class="d-none" id="id-product-modal"> </span>
                             <div class="modal-img">
                                 <img id="img-modal-producto" src="{{ asset('').$p->get(0)->fotos->get(0)->ur_foto}}"
                                      class="img-fluid mx-auto" alt="Imgaen producto">
@@ -39,7 +40,7 @@
                                     <button class="btn btn-outline-secondary btn-increment" id="inputGroup-sizing-sm"><i
                                                 class="fa fa-angle-up"></i></button>
                                 </div>
-                                <input type="text" class="form-control text-center" aria-label="Small"
+                                <input type="text" id="cantidad-modal" class="form-control text-center" aria-label="Small"
                                        aria-describedby="inputGroup-sizing-sm" value="1" readonly min="1">
                                 <div class="input-group-prepend">
 
@@ -51,7 +52,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="text-center">
-                                <button type="button" class="btn btn-outline-secondary text-uppercase">Agregar al
+                                <button id="add-cart-btn" type="button" class="btn btn-outline-secondary text-uppercase">Agregar al
                                     carrito
                                 </button>
                             </div>

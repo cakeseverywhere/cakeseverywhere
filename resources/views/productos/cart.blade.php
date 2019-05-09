@@ -80,7 +80,11 @@
                 <div class="tab-pane fade p-2" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div class="card">
                         <div class="card-body">
-
+                            <button type="button" class="btn btn-outline-dark btn-lg btn-block my-2"><i class="fa fa-shopping-cart"></i> Solo en Tienda</button>
+                            <div class="alert alert-success">
+                                <strong>Importante: </strong><br/> Para realizar tu pedido, es necesario que entregues un anticipo del 50% de tu pedido,
+                                a los 3 días hábiles  haberse generado  tu ticket.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,8 +93,6 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover">
-                                    <caption>Actualmente no se realizado ningun pedio. Regiliza tu primer pedido hoy.
-                                    </caption>
                                     <thead class="text-center">
 
                                     <tr>
@@ -126,7 +128,10 @@
             </div>
         </div>
         <div class="col-md-4">
-            <button class="btn btn-outline-info btn-lg btn-block my-2" type="submit">Realizar Pedido</button>
+
+                <button class="btn btn-outline-info btn-lg btn-block my-2" id="btn-pedido">
+                    <i id="spin-pedido" style="display: none" class="fa fa-circle-o-notch fa-spin"></i> Realizar Pedido
+                </button>
             <div class="card my-2">
 
                 <!--Card content-->

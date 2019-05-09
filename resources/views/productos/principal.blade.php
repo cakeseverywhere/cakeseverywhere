@@ -1,16 +1,5 @@
 @extends('templates.layout')
 @section('content')
-  <div class="d-none">
-      <form id="add-product-form" action="{{url('cart/addProducto')}}" method="post">
-          @csrf
-          <input id="idProduct" name="idProduct" value="">
-          <input id="nomProduct" name="nomProduct" value="">
-          <input id="cantidad" name="cantidad" value="1">
-          <input id="price" name="price" value="0.0">
-          <input id="imgProduct" name="imgProduct" value="">
-          <input type="submit"/>
-      </form>
-  </div>
 
 
 
@@ -194,11 +183,6 @@
                     }
                 });
             });
-
-
-
-
-
         });
     </script>
 @endsection

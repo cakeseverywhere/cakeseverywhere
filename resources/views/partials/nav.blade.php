@@ -56,7 +56,7 @@
 
                         </ul>
                     @else
-
+                           <a href="{{route('cart')}}" class="p-2"><i class="fa fa-shopping-cart"></i> </a>
                             <a href="{{route('login')}}" > <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión</a>
                             <a href="{{route('register')}}" ><i class="fa fa-user-circle-o" aria-hidden="true" ></i> Registrarse</a>
                     @endauth

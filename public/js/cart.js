@@ -1,6 +1,6 @@
 
 var arrayResumen = [];
-
+var total = 0;
 
 
 
@@ -19,7 +19,9 @@ function completeTableCart() {
         if (jsonCart != false) {
             cantidad = parseInt(jsonCart.cantidad);
             costo = (cantidad * parseFloat(jsonCart.precio)).toFixed(2);
-            var jsonResuem = {'cantidad': 1, 'producto': '', 'costo': 102.25};
+            var jsonResuem = {'id': -1,'cantidad': 1, 'producto': '', 'costo': 102.25};
+            jsonResuem.id = jsonCart.id;
+
             jsonResuem.producto = jsonCart.producto;
             jsonResuem.cantidad = jsonCart.cantidad;
             jsonResuem.costo = costo;
@@ -65,7 +67,7 @@ function completeTableCart() {
 
 function upDateResumen() {
     var rowResum="";
-    var total = 0;
+    total = 0;
     $.each(arrayResumen, function (key, value) {
         total += parseFloat(value.costo);
         rowResum += "<dl class='row'>" +
@@ -91,6 +93,32 @@ function upDateResumen() {
 }
 
 
+
+
+function ajaxPedido(){
+    $.ajax({
+        url:"/cart/pedido",
+        type:"post",
+        data:{"lisProduct": JSON.stringify(arrayResumen), "total": total, "anticipo": total*0.50},
+        dataType:"json",
+        beforeSend: function () {
+            $("#spin-pedido").show();
+        },
+        success: function(data){
+                console.log(data);
+        },
+        complete: function () {
+            $("#spin-pedido").hide();
+        },
+        error: function (xhr, status, thrownError) {
+            alert('Error: ' + xhr + 'mensaje: ' + thrownError);
+        }
+
+
+
+
+    });
+}
 
 
 $(document).ready(function () {
@@ -134,4 +162,9 @@ $(document).ready(function () {
         tdCosto.text("$" + costo);
 
     });
+    $("#btn-pedido").on('click', function (){
+            ajaxPedido();
+    });
+
+
 });

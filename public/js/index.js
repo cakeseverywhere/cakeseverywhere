@@ -47,3 +47,10 @@ function dragLeave(event) {
 function drop(event) {
     event.target.parentNode.className = event.target.parentNode.className.replace('draging', '');
 }
+
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});

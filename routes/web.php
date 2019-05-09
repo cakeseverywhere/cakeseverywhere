@@ -21,7 +21,7 @@ Route::view('nosotros','informative.nosotros')->name('nosotros');
 
 Route::view('pasteles','productos.pasteles')->name('pasteles');
 
-Route::view('cart','productos.cart')->name('cart');
+Route::get('cart','ModuloPedido\PedidosController')->name('cart');
 
 
 
@@ -31,4 +31,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('registerDireccionesSucursales','DireccionesSucursalesController@index')->name('registrarSucursal');
 Route::post('registerDireccionesSucursales','DireccionesSucursalesController@register');
-
+Route::post('cart/pedido', 'ModuloPedido\PedidosController@addPedido');

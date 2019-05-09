@@ -19,7 +19,8 @@ Route::get('infoProductos', 'ProductosController@show');
 
 Route::view('nosotros','informative.nosotros')->name('nosotros');
 
-Route::view('pasteles','productos.pasteles')->name('pasteles');
+
+Route::get('pasteles','ProductosController@todoPastel')->name('pasteles');
 
 Route::get('cart','ModuloPedido\PedidosController')->name('cart');
 

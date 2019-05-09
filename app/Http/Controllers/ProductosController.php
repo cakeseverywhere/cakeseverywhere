@@ -107,4 +107,10 @@ class ProductosController extends Controller
         $producto->fotos;
         return $producto;
     }
+
+    protected function todoPastel(){
+        $tpasteles=producto::paginate(6);
+        $p = $tpasteles -> random(1);
+        return view('productos.pasteles',compact('tpasteles','p'));
+    }
 }

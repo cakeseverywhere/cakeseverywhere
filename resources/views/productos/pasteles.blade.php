@@ -1,9 +1,21 @@
 @extends('templates.layout')
 @section('content')
+    <div class="d-none">
+        <form id="add-product-form" action="{{url('cart/addProducto')}}" method="post">
+            @csrf
+            <input id="idProduct" name="idProduct" value="">
+            <input id="nomProduct" name="nomProduct" value="">
+            <input id="cantidad" name="cantidad" value="1">
+            <input id="price" name="price" value="0.0">
+            <input id="imgProduct" name="imgProduct" value="">
+            <input type="submit"/>
+        </form>
+    </div>
+    @include('productos.modals.producto_modal')
     <!--incio imagen pagina pateles-->
     <div class="img-producto " style="background-color: #4e555b">
-
-        <img class="img-fluid rounded mx-auto d-block" src="{{asset('img/producto/p1.jpg')}}" alt="productos-img">
+        <img class="img-fluid rounded mx-auto d-block" src="{{asset('').$p->get(0)->fotos->get(0)['ur_foto']}}"
+             alt="500px" width="500px">
     </div>
     <!--endimagen-->
 
@@ -12,133 +24,91 @@
         <div class="title-text py-2">
             <h2 class="text-uppercase">PASTELES</h2>
         </div>
-        <div class="card-deck" data-current="0">
-            <div class="card start-card">
-                <img class="card-img-top" src="{{asset('img/producto/p2.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
 
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
+        <div class="card-columns" data-current="0">
+            @foreach($tpasteles as $tpastel)
+                <div class="card {{$loop->first?  'start-card':'' }} ">
+                    <div class="container-img-see">
+                        <a class="info-producto" data-id="{{ $tpastel['id'] }}">
 
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <img class="card-img-top" src="{{asset('').$tpastel['fotos']->get(0)['ur_foto']}}"
+                                 width="245" height="180" alt="Card image cap">
+                        </a>
+                        <span class="text-img-center">Ver</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{$tpastel['nom_producto']}}</h5>
+                        <p class="card-text">{{$tpastel['desc_producto']}}</p>
+                        <p class="card-text">
+                            <small class="text-muted"></small>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-left">$</div>
+                        <div class="float-right">
+                            <a class="info-producto" data-id="{{ $tpastel['id'] }}">
+                                <i class="fa fa-shopping-cart" data-toggle="modal"
+                                   data-target="#producto-modal"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-        <div class="card-deck" data-current="0">
-            <div class="card start-card">
-                <img class="card-img-top" src="{{asset('img/producto/p2.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
 
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
 
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-        <div class="card-deck" data-current="0">
-            <div class="card start-card">
-                <img class="card-img-top" src="{{asset('img/producto/p2.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-
-            <div class="card ">
-                <img class="card-img-top" src="{{asset('img/producto/P3.jpg')}}" width="245" height="180" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
+            {{ $tpasteles->links() }}</div>
         </ul>
     </nav>
 
-    <!-- END Pasteles-->
 
+@endsection
 
+@section('javascript')
+    <script src="{{asset('js/principal.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.info-producto').on('click', function (e) {
+                $.ajax({
+                    url: "{{url('infoProductos')}}",
+                    method: 'GET',
+                    data: {"id": $(this).data('id')},
+                    dataType: 'json',
+                    beforeSend: function () {
+                        $("#producto-modal").modal('show');
+                        $("#loader-modal-producto").show();
+                    },
+                    success: function (data) {
+                        $("#img-modal-producto").prop('src', "{{asset('')}}" + data.fotos[0].ur_foto);
+                        $("#id-product-modal").text(data.id);
+                        $("#titulo-modal-producto").text(data.nom_producto);
+                        $("#desc-producto-modal").text(data.desc_producto);
+                        $("#price-modal-producto").text('$'+data.precio);
+                    },
+                    complete: function () {
 
+                        $("#datos-modal").show();
+                        $("#loader-modal-producto").hide();
+                    },
+                    error: function (xhr, status, thrownError) {
+                        alert('Error: ' + xhr + 'mensaje: ' + thrownError);
+                    }
+                });
+            });
+            $('#add-cart-btn').on('click', function () {
+                $('#idProduct').val($("#id-product-modal").text());
+                $('#nomProduct').val($("#titulo-modal-producto").text());
+                $('#price').val($("#price-modal-producto").text().replace('$',''));
+                $('#cantidad').val($("#cantidad-modal").val());
+                $("#imgProduct").val($("#img-modal-producto").prop('src'));
 
+                $("#add-product-form").submit();
+
+            });
+        });
+    </script>
 @endsection
